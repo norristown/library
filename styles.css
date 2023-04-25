@@ -1,6 +1,7 @@
 body {
     font-family: monospace;
     background-color: #71717a;
+    padding: 3rem;
 }
 
 .modal {
@@ -57,10 +58,44 @@ body {
   display: flex;
   gap: 5rem;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .background {
   display: flex;
   /* flex-direction: column; */
   align-items: center;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+}
+
+.add {
+	background-color:#44c767;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:28px;
+	font-weight:bold;
+	padding:16px 32px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.add:hover {
+	background-color:#5cbf2a;
+}
+.add:active {
+	position:relative;
+	top:1px;
+}
+
+.library {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.btnContainer {
+  margin-top: auto;
 }

@@ -42,14 +42,23 @@ function createCard() {
                 <button class="finishedReading">Finished Reading</button>
                 <button class="delBtn">Delete</button>
             </div>
-        </div>`
+        </div>`;
     }
 
-    let delBtn = document.querySelectorAll('.delBtn');
-    delBtn.forEach((button) => {
+    const delBtn = document.querySelectorAll('.delBtn');
+    delBtn.forEach((button, index) => {
         button.addEventListener('click', (e) => {
             e.target.parentNode.parentNode.remove();
-            
+            myLibrary.splice(index, 1);
+        })
+    })
+
+    const finishedReading = document.querySelectorAll('.finishedReading');
+    finishedReading.forEach((button, index) => {
+        button.addEventListener('click', (e) => {
+            myLibrary[index].status = '';
+            myLibrary[index].status = 'Finished'
+            createCard();
         })
     })
 }
