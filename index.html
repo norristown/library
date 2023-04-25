@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background">
+        <h1>Library</h1>
+        <button class="add">Add Book</button>
+    </div>
+    <div class="container"> 
+    </div>
+    <div class="modal hidden">
+        <button class="close-modal">&times;</button>
+        <h1>Enter book info: </h1>
+        <form onsubmit="">
+            <label for="title">Title: </label><br>
+            <input type="text" name="title" id="title" class="inputField"><br><br>
+            <label for="author">Author: </label><br>
+            <input type="text" name="author" id="author" class="inputField"><br><br>
+            <label for="pages">Number of Pages: </label><br>
+            <input type="text" name="pages" id="pages" class="inputField"><br><br>
+            <label for="status">Status (Read/Unread): </label><br>
+            <input type="text" name="status" id="status" class="inputField"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div class="overlay hidden"></div>
+</body>
+</html>
