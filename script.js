@@ -3,7 +3,7 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.status = read;
-    }
+}
 
 const theHobbit = new Book(
     'The Hobbit',
@@ -25,7 +25,6 @@ const returnOfTheKing = new Book(
 )
 
 let myLibrary = [theHobbit, theFellowship, returnOfTheKing];
-console.log(myLibrary)
 
 //Create cards
 const container = document.querySelector('.container');
@@ -33,7 +32,7 @@ function createCard() {
     container.innerHTML = '';
     for (let i = 0; i < myLibrary.length; i++) {
         container.innerHTML +=
-        `<div class="card">
+            `<div class="card">
             <div class="title">Title: ${myLibrary[i].title}</div>
             <div class="author">Author: ${myLibrary[i].author}</div>
             <div class="pages">Pages: ${myLibrary[i].pages}</div>
@@ -55,40 +54,40 @@ function createCard() {
 
     const finishedReading = document.querySelectorAll('.finishedReading');
     finishedReading.forEach((button, index) => {
-        button.addEventListener('click', (e) => {
-            myLibrary[index].status = '';
-            myLibrary[index].status = 'Finished'
+        button.addEventListener('click', () => {
+            if (clicked == false) {
+                clicked = true;
+                myLibrary[index].status = '';
+                myLibrary[index].status = 'Finished';
+
+            } else {
+                clicked = false;
+                myLibrary[index].status = '';
+                myLibrary[index].status = 'Unread'
+            }
+
             createCard();
         })
     })
 }
 createCard();
+let clicked = false;
 
-//Add book to Library from user input
-// function addBookToLibrary() {
-//     const title = document.querySelector('#title');
-//     const author = document.querySelector('#author');
-//     const pages = document.querySelector('#pages');
-//     const status = document.querySelector('#status');
-//     const newBook = new Book(
-//         title.value, 
-//         author.value,
-//         pages.value,
-//         status.value
-//     )
-//     myLibrary.push(newBook);
-// }
-
-const form = document.querySelector('form');
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const fd = new FormData(form);
-    const obj = Object.fromEntries(fd);
-    myLibrary.push(obj);
-    modal.classList.add('hidden');
-    overlay.classList.add('hidden');
-    createCard();
-})
+function addBookToLibrary() {
+    const form = document.querySelector('form');
+    const input = document.querySelectorAll('.inputField')
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const fd = new FormData(form);
+        const obj = Object.fromEntries(fd);
+        myLibrary.push(obj);
+        modal.classList.add('hidden');
+        overlay.classList.add('hidden');
+        input.forEach((field) => {field.value = ""})
+        createCard();
+    })
+}
+addBookToLibrary();
 
 
 //Modal window
@@ -96,12 +95,12 @@ const btn = document.querySelector('.add');
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const closeModal = document.querySelector('.close-modal')
-btn.addEventListener('click', function() {
+btn.addEventListener('click', function () {
     modal.classList.remove('hidden');
     overlay.classList.remove('hidden');
 })
 
-closeModal.addEventListener('click', function() {
+closeModal.addEventListener('click', function () {
     modal.classList.add('hidden');
     overlay.classList.add('hidden');
 })
