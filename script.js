@@ -9,7 +9,7 @@ const theHobbit = new Book(
     'The Hobbit',
     'J.R.R. Tolkein',
     '295',
-    'not read yet'
+    'Currently Reading'
 )
 const theFellowship = new Book(
     'The Fellowship of the Ring',
@@ -33,15 +33,15 @@ function createCard() {
     for (let i = 0; i < myLibrary.length; i++) {
         container.innerHTML +=
             `<div class="card">
-            <div class="title">Title: ${myLibrary[i].title}</div>
-            <div class="author">Author: ${myLibrary[i].author}</div>
-            <div class="pages">Pages: ${myLibrary[i].pages}</div>
-            <div class="status">Status: ${myLibrary[i].status}</div>
-            <div class="btnContainer">
-                <button class="finishedReading">Finished Reading</button>
-                <button class="delBtn">Delete</button>
-            </div>
-        </div>`;
+                <div class="title">${myLibrary[i].title}</div>
+                <div class="author">By ${myLibrary[i].author}</div>
+                <div class="pages">Pages: ${myLibrary[i].pages}</div>
+                <div class="status">Status: ${myLibrary[i].status}</div>
+                <div class="btnContainer">
+                    <button class="finishedReading">Finished Reading</button>
+                    <button class="delBtn">Delete</button>
+                </div>
+             </div>`;
     }
 
     const delBtn = document.querySelectorAll('.delBtn');
